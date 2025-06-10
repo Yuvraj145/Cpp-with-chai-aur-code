@@ -1,0 +1,81 @@
+🔹 1. Pass by Value
+📌 Definition:
+Jab hum function ko call karte hain aur usme variable ki copy bhejte hain. Original value change nahi hoti.
+
+🔸 Example:
+
+void change(int x) {
+    x = 10;
+}
+
+int main() {
+    int a = 5;
+    change(a);
+    cout << a;  // Output: 5
+}
+🔹 2. Pass by Reference
+📌 Definition:
+Function ko variable ka reference diya jata hai. Isliye function ke andar ki changes, original variable mein reflect hoti hain.
+
+🔸 Example:
+
+void change(int &x) {
+    x = 10;
+}
+
+int main() {
+    int a = 5;
+    change(a);
+    cout << a;  // Output: 10
+}
+🔹 3. Pointer Parameter
+📌 Definition:
+Function mein variable ka address bheja jata hai. Function pointer ke through original value ko modify kar sakta hai.
+
+🔸 Example:
+
+void change(int *x) {
+    *x = 10;
+}
+
+int main() {
+    int a = 5;
+    change(&a);
+    cout << a;  // Output: 10
+}
+🔹 4. Default Parameter
+📌 Definition:
+Agar function call mein koi argument na diya jaye, to default value use hoti hai.
+
+🔸 Example:
+
+void greet(string name = "Guest") {
+    cout << "Hello, " << name << endl;
+}
+
+int main() {
+    greet();         // Output: Hello, Guest
+    greet("Rahul");  // Output: Hello, Rahul
+}
+🔹 5. Const Parameter
+📌 Definition:
+Ye parameter function ke andar change nahi kiya ja sakta. Secure data ko protect karta hai.
+
+🔸 Example:
+
+void show(const int x) {
+    cout << "Value: " << x << endl;
+    // x = 10;  // ❌ Error: cannot modify a const parameter
+}
+
+int main() {
+    show(5);  // Output: Value: 5
+}
+✅ Final Summary Table:
+Parameter Type	Value Changes Original?	Syntax Example
+Pass by Value	❌	void fun(int x)
+Pass by Reference	✅	void fun(int &x)
+Pointer Parameter	✅	void fun(int *x)
+Default Parameter	❌ (unless modified)	void fun(int x = 5)
+Const Parameter	❌	void fun(const int x)
+
